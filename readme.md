@@ -19,7 +19,7 @@ cd sabre-heuristic-data-generator
 java -Xms10g -Xmx10g -jar lib/hdg.jar -p sabre-benchmarks/problems/macguffin.txt -atl 2 -ctl 2 -el 1 -out output/macguffin.csv
 ```
 
-The `-p` argument specifies the Sabre problem. `-atl` and `-ctl` at the author
+The `-p` argument specifies the Sabre problem. `-atl` and `-ctl` are the author
 and character temporal limits that define how long a solution plan can be and
 how long an individual character's plan can be. `-el` is the epistemic limit
 that controls how deeply the search will reason about each character's theory of
