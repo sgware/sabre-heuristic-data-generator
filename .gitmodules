@@ -1,6 +1,6 @@
 [submodule "sabre"]
 	path = sabre
-	url = https://github.com/sgware/sabre/tree/v0.8
+	url = https://github.com/sgware/sabre
 [submodule "sabre-benchmarks"]
 	path = sabre-benchmarks
 	url = https://github.com/sgware/sabre-benchmarks
