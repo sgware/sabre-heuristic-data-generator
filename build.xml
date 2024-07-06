@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE xml>
+<project name="Sabre Heuristic Data Generator" default="build">
+	<target name="build" depends="clean,javadoc,jar"/>
+	<target name="clean">
+		<delete dir="doc"/>
+		<delete dir="lib"/>
+	</target>
+    <target name="javadoc">
+    	<javadoc
+    		doctitle="Sabre Heuristic Data Generator"
+    		classpath=".;./sabre/lib/sabre.jar"
+    		sourcepath="src;./sabre/lib/sabre.jar/*"
+    		destdir="doc"
+    		packagenames="
+    			edu.uky.cs.nil.sabre.hdg
+    		"
+    		access="protected"
+    		source="11"
+    		use="true"
+    		author="true"
+    		version="true"
+    	/>
+    </target>
+	<target name="jar">
+        <jar destfile="lib/hdg.jar">
+        	<fileset dir="src"/>
+        	<fileset dir="bin"/>
+			<zipfileset src="sabre/lib/sabre.jar" includes="**/*.class"/>
+			<manifest>
+				<attribute name="Main-Class" value="edu.uky.cs.nil.sabre.hdg.Main" />
+			</manifest>
+        </jar>
+    </target>
+</project>
