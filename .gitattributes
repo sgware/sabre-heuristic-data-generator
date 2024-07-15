@@ -6,3 +6,4 @@ output/jailbreak.csv filter=lfs diff=lfs merge=lfs -text
 output/bribery.csv filter=lfs diff=lfs merge=lfs -text
 output/deerhunter.csv filter=lfs diff=lfs merge=lfs -text
 output/secretagent.csv filter=lfs diff=lfs merge=lfs -text
+output/treasure.csv filter=lfs diff=lfs merge=lfs -text
