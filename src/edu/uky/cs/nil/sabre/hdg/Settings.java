@@ -17,7 +17,7 @@ public class Settings {
 	public static final int MAJOR_VERSION_NUMBER = 1;
 	
 	/** The minor version number comes after the decimal point */
-	public static final int MINOR_VERSION_NUMBER = 0;
+	public static final int MINOR_VERSION_NUMBER = 1;
 	
 	/** The full version number (major + minor) as a string */
 	public static final String VERSION_STRING = MAJOR_VERSION_NUMBER + "." + MINOR_VERSION_NUMBER;

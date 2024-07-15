@@ -87,6 +87,80 @@ heuristic failed to find a relaxed plan.
 - *relaxed*: The relaxed plan found by the relaxed plan heuristic, if one was
 found.
 
+## Methodology
+
+The goal of this project is to generate as many nodes as possible for each
+problem that are solutions or that have a known distance to a solution using an
+exhaustive uninformed search. Problems fall into one of three sizes: so small
+that all solutions can be generated, so large that no solutions can be
+generated, and the medium problems in between.
+
+Which solutions can be generated depends on the
+[author and character temporal limits and the epistemic limit](https://htmlpreview.github.io/?https://github.com/sgware/sabre/blob/main/doc/edu/uky/cs/nil/sabre/search/Planner.html)
+used for the search. We used the recommended character temporal limit and
+epistemic limit given for each problem in the
+[benchmark problem report](https://github.com/sgware/sabre-benchmarks/blob/main/report.pdf).
+The author temporal limit was based on what depth the search could before
+running out of time or memory. The search settings used for all output files are
+given in
+[the output meta table](https://github.com/sgware/sabre-heuristic-data-generator/blob/main/output/meta.csv).
+
+### Small Problems
+
+Some problems are small enough that every solution can be generated in a
+reasonable amount of time. Many classical planning problems have an infinite
+number of solutions because solutions are not required to be minimal. For
+example, in the classic
+[Blocks World](https://en.wikipedia.org/wiki/Blocks_world) domain, you can
+endlessly stack and unstack blocks to make a solution of arbitrary length.
+However, Sabre requires that solutions be minimal. A minimal solution is one
+where no subsequence of its actions is also a solution. This means that many
+Sabre problems have a finite number of solutions. For example, in the MacGuffin
+problem, Tom can walk back and forth between home and the market endlessly
+before buying the MacGuffin, but problems with these loops are not minimal and
+thus not considered solutions by Sabre. This means all the solutions for
+MacGuffin can be generated.
+
+More precisely, a small problem is one where increasing the author temporal
+limit beyond the limit we used would not generate any more solutions. It is
+possible that increasing the character temporal limit or epistemic limit beyond
+the values recommended in the benchmark problem report would generate more
+solutions.
+
+These problems are small:
+- MacGuffin
+- Bribery
+- Secret Agent
+- Raiders of the Lost Ark
+- Treasure
+
+### Medium Problems
+
+Medium problems are small enough that an exhaustive uninformed search can
+generate some solutions, and it is likely that raising the author temporal limit
+would generate more.
+
+These problems are medium:
+- Deer Hunter
+- Fantasy
+- Space
+- Save Gramma
+- Jailbreak
+
+### Large Problems
+
+Large problems are so large that we were not able to generate any solutions in a
+reasonable amount of time using an exhaustive uninformed search. This typically
+means that the problem either requires more than 500 GB of memory or more than 3
+days of run time to generate any solutions.
+
+These problems are large:
+- Aladdin
+- Hospital
+- Basketball
+- Western
+- Lovers
+
 ## Ownership and License
 
 This tool and the Sabre Narrative Planner was developed by Stephen G. Ware PhD,
@@ -98,6 +172,7 @@ This tool is not released under any particular license.
 
 ## Version History
 
+- Version 1.1: Incorporated a fix for the Relaxed Plan Heuristic from Sabre 0.8.
 - Version 1.0: First public release, using a pre-release version of Sabre 0.8.
 
 ## Citation
