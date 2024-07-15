@@ -1,4 +1,7 @@
 "problem","characters","fluents","actions","triggers","atl","ctl","el","visited","generated","time (ms)"
+"bribery",3,16,27,0,5,5,2,107948,254697,4044
+"deerhunter",3,35,28,76,10,6,1,3248573,8061936,17018443
+"secretagent",2,14,44,75,8,8,1,192,258,90
 "macguffin",2,9,5,12,2,2,1,10,35,5
 "space",2,23,29,62,9,3,1,28056,153418,4968
 "raiders",3,21,39,66,7,4,1,640,4748,142

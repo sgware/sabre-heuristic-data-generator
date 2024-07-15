@@ -3,3 +3,6 @@ output/space.csv filter=lfs diff=lfs merge=lfs -text
 output/raiders.csv filter=lfs diff=lfs merge=lfs -text
 output/fantasy.csv filter=lfs diff=lfs merge=lfs -text
 output/jailbreak.csv filter=lfs diff=lfs merge=lfs -text
+output/bribery.csv filter=lfs diff=lfs merge=lfs -text
+output/deerhunter.csv filter=lfs diff=lfs merge=lfs -text
+output/secretagent.csv filter=lfs diff=lfs merge=lfs -text
