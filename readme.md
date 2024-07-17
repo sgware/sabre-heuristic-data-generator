@@ -100,32 +100,38 @@ Which solutions can be generated depends on the
 used for the search. We used the recommended character temporal limit and
 epistemic limit given for each problem in the
 [benchmark problem report](https://github.com/sgware/sabre-benchmarks/blob/main/report.pdf).
-The author temporal limit was based on what depth the search could before
+The author temporal limit was based on what depth the search could reach before
 running out of time or memory. The search settings used for all output files are
 given in
 [the output meta table](https://github.com/sgware/sabre-heuristic-data-generator/blob/main/output/meta.csv).
 
+These tests were performed on Dell Precision desktop computers with CPUs ranging
+from 3GHz to 4GHz with 500GB of RAM allocated to the Java virtual machine.
+
 ### Small Problems
 
-Some problems are small enough that every solution can be generated in a
-reasonable amount of time. Many classical planning problems have an infinite
-number of solutions because solutions are not required to be minimal. For
-example, in the classic
-[Blocks World](https://en.wikipedia.org/wiki/Blocks_world) domain, you can
-endlessly stack and unstack blocks to make a solution of arbitrary length.
-However, Sabre requires that solutions be minimal. A minimal solution is one
-where no subsequence of its actions is also a solution. This means that many
-Sabre problems have a finite number of solutions. For example, in the MacGuffin
-problem, Tom can walk back and forth between home and the market endlessly
-before buying the MacGuffin, but problems with these loops are not minimal and
-thus not considered solutions by Sabre. This means all the solutions for
-MacGuffin can be generated.
+Some problems are small enough that every minimal solution can be generated in a
+reasonable amount of time. A minimal solution is one where no subsequence of the
+actions is also a solution. This tool does not exclude non-minimal plans from
+the generated data because sometimes characters need to reason about non-minimal
+plans. Consider this example for character Jones from Raiders of the Lost Ark:
 
-More precisely, a small problem is one where increasing the author temporal
-limit beyond the limit we used would not generate any more solutions. It is
-possible that increasing the character temporal limit or epistemic limit beyond
-the values recommended in the benchmark problem report would generate more
-solutions.
+```
+1. travel(Jones, USA, Tanis)
+2. dig(Jones, Ark, Tanis)
+3. take(Nazis, Ark, Jones, Tanis)
+4. open(Nazis, Ark, Tanis)
+5. take(Jones, Ark, Nazis, Tanis)
+6. travel(Jones, Tanis, USA)
+7. take(USArmy, Ark, Jones, USA)
+```
+
+This plan is not minimal, because steps 3, 4, and 5 could be left out and the
+plan would still achieve Jones' goal. However, Jones still needs to reason
+about this plan when the actions of the antagonists thwart him.
+
+A small problem is one where, if it were run with a higher author temporal
+limit, the only additional solutions generated would be non-minimal.
 
 These problems are small:
 - MacGuffin

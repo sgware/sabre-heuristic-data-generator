@@ -66,7 +66,7 @@ public class ProgressionTreeMap {
 		count = 0;
 		status.setMessage("Labeling solutions: %d nodes processed", count);
 		for(long node : distance.keySet()) {
-			if(isSolution(node))
+			if(isSolution(node) && distance.get(node) == Integer.MAX_VALUE)
 				distance.put(node, 0);
 			status.update(0, ++count);
 		}
