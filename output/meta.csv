@@ -1,1 +1,7 @@
 "problem","characters","fluents","actions","triggers","atl","ctl","el","visited","generated","time (ms)"
+"macguffin",2,9,5,12,2,2,1,10,35,4
+"bribery",3,16,27,0,5,5,2,107948,254697,1474
+"secretagent",2,14,44,75,9,8,1,200,270,45
+"space",2,23,29,62,9,3,1,28056,153418,4837
+"raiders",3,21,39,66,8,4,1,830,5779,171
+"treasure",2,4,5,0,4,4,3,68,159,8
