@@ -178,7 +178,8 @@ This tool is not released under any particular license.
 
 ## Version History
 
-- Version 1.1: Incorporated a fix for the Relaxed Plan Heuristic from Sabre 0.8.
+- Version 1.1: Incorporated a fix for the Relaxed Plan Heuristic from Sabre 0.8,
+fixed small bugs, and added more detail on methodology to the readme.
 - Version 1.0: First public release, using a pre-release version of Sabre 0.8.
 
 ## Citation
