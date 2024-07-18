@@ -152,6 +152,7 @@ These problems are medium:
 - Space
 - Save Gramma
 - Jailbreak
+- Lovers
 
 ### Large Problems
 
@@ -165,7 +166,6 @@ These problems are large:
 - Hospital
 - Basketball
 - Western
-- Lovers
 
 ## Ownership and License
 
