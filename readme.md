@@ -148,6 +148,7 @@ would generate more.
 
 These problems are medium:
 - Deer Hunter
+- Hospital
 - Fantasy
 - Space
 - Save Gramma
@@ -163,7 +164,6 @@ days of run time to generate any solutions.
 
 These problems are large:
 - Aladdin
-- Hospital
 - Basketball
 - Western
 
