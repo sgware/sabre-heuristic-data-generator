@@ -87,6 +87,86 @@ heuristic failed to find a relaxed plan.
 - *relaxed*: The relaxed plan found by the relaxed plan heuristic, if one was
 found.
 
+## Methodology
+
+The goal of this project is to generate as many nodes as possible for each
+problem that are solutions or that have a known distance to a solution using an
+exhaustive uninformed search. Problems fall into one of three sizes: so small
+that all solutions can be generated, so large that no solutions can be
+generated, and the medium problems in between.
+
+Which solutions can be generated depends on the
+[author and character temporal limits and the epistemic limit](https://htmlpreview.github.io/?https://github.com/sgware/sabre/blob/main/doc/edu/uky/cs/nil/sabre/search/Planner.html)
+used for the search. We used the recommended character temporal limit and
+epistemic limit given for each problem in the
+[benchmark problem report](https://github.com/sgware/sabre-benchmarks/blob/main/report.pdf).
+The author temporal limit was based on what depth the search could reach before
+running out of time or memory. The search settings used for all output files are
+given in
+[the output meta table](https://github.com/sgware/sabre-heuristic-data-generator/blob/main/output/meta.csv).
+
+These tests were performed on Dell Precision desktop computers with CPUs ranging
+from 3GHz to 4GHz with 500GB of RAM allocated to the Java virtual machine.
+
+### Small Problems
+
+Some problems are small enough that every minimal solution can be generated in a
+reasonable amount of time. A minimal solution is one where no subsequence of the
+actions is also a solution. This tool does not exclude non-minimal plans from
+the generated data because sometimes characters need to reason about non-minimal
+plans. Consider this example for character Jones from Raiders of the Lost Ark:
+
+```
+1. travel(Jones, USA, Tanis)
+2. dig(Jones, Ark, Tanis)
+3. take(Nazis, Ark, Jones, Tanis)
+4. open(Nazis, Ark, Tanis)
+5. take(Jones, Ark, Nazis, Tanis)
+6. travel(Jones, Tanis, USA)
+7. take(USArmy, Ark, Jones, USA)
+```
+
+This plan is not minimal, because steps 3, 4, and 5 could be left out and the
+plan would still achieve Jones' goal. However, Jones still needs to reason
+about this plan when the actions of the antagonists thwart him.
+
+A small problem is one where, if it were run with a higher author temporal
+limit, the only additional solutions generated would be non-minimal.
+
+These problems are small:
+- MacGuffin
+- Bribery
+- Secret Agent
+- Raiders of the Lost Ark
+- Treasure
+
+### Medium Problems
+
+Medium problems are small enough that an exhaustive uninformed search can
+generate some solutions, and it is likely that raising the author temporal limit
+would generate more.
+
+These problems are medium:
+- Deer Hunter
+- Hospital
+- Fantasy
+- Space
+- Save Gramma
+- Jailbreak
+- Lovers
+
+### Large Problems
+
+Large problems are so large that we were not able to generate any solutions in a
+reasonable amount of time using an exhaustive uninformed search. This typically
+means that the problem either requires more than 500 GB of memory or more than 3
+days of run time to generate any solutions.
+
+These problems are large:
+- Aladdin
+- Basketball
+- Western
+
 ## Ownership and License
 
 This tool and the Sabre Narrative Planner was developed by Stephen G. Ware PhD,
@@ -98,6 +178,8 @@ This tool is not released under any particular license.
 
 ## Version History
 
+- Version 1.1: Incorporated a fix for the Relaxed Plan Heuristic from Sabre 0.8,
+fixed small bugs, and added more detail on methodology to the readme.
 - Version 1.0: First public release, using a pre-release version of Sabre 0.8.
 
 ## Citation
